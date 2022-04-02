@@ -1,0 +1,27 @@
+﻿@model IEnumerable<StackOverflow.Models.User>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<form action="/Users/Login" method="post">
+    <div class="col-md-4">
+        <input type="text" name="userValue" class="form-control" placeholder="Username">
+    </div>
+    <br />
+    <div class="col-md-4">
+        <input type="password" name="passValue" class="form-control" placeholder="Password">
+    </div>
+    <br />
+    <div class="col-md-4">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <span class="text-danger">@ViewBag.ErrMsg</span>
+    </div>
+    
+</form>
+<br />
+<form action="/Users/Create" method="get">
+    <div class="col-md-4">
+        <button type="submit" class="btn btn-primary">Register user</button>
+    </div>
+</form>

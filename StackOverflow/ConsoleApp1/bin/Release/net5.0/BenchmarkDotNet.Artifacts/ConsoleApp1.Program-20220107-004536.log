@@ -1,0 +1,141 @@
+// Validating benchmarks:
+// ***** BenchmarkRunner: Start   *****
+// ***** Found 1 benchmark(s) in total *****
+// ***** Building 1 exe(s) in Parallel: Start   *****
+// start dotnet restore  /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 /p:Deterministic=true /p:Optimize=true in D:\Users\HP\source\repos\Stackoverflow\ConsoleApp1\bin\Release\net5.0\796271d2-f20a-48a1-9188-ddc799fae01e
+// command took 1.33s and exited with 0
+// start dotnet build -c Release  --no-restore /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 /p:Deterministic=true /p:Optimize=true in D:\Users\HP\source\repos\Stackoverflow\ConsoleApp1\bin\Release\net5.0\796271d2-f20a-48a1-9188-ddc799fae01e
+// command took 2.5s and exited with 0
+// ***** Done, took 00:00:03 (3.91 sec)   *****
+// Found 1 benchmarks:
+//   Program.InsertUser: Job-KVTKKL(IterationCount=20, LaunchCount=1, RunStrategy=Throughput, WarmupCount=5)
+
+// **************************
+// Benchmark: Program.InsertUser: Job-KVTKKL(IterationCount=20, LaunchCount=1, RunStrategy=Throughput, WarmupCount=5)
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "796271d2-f20a-48a1-9188-ddc799fae01e.dll" --benchmarkName "ConsoleApp1.Program.InsertUser" --job "IterationCount=20, LaunchCount=1, RunStrategy=Throughput, WarmupCount=5" --benchmarkId 0 in D:\Users\HP\source\repos\Stackoverflow\ConsoleApp1\bin\Release\net5.0\796271d2-f20a-48a1-9188-ddc799fae01e\bin\Release\net5.0
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// Runtime=.NET 5.0.13 (5.0.1321.56516), X64 RyuJIT
+// GC=Concurrent Workstation
+// Job: Job-DIYLZU(IterationCount=20, LaunchCount=1, RunStrategy=Throughput, WarmupCount=5)
+
+OverheadJitting  1: 1 op, 200000.00 ns, 200.0000 us/op
+WorkloadJitting  1: 1 op, 1291325000.00 ns, 1.2913 s/op
+
+WorkloadWarmup   1: 1 op, 444016500.00 ns, 444.0165 ms/op
+WorkloadWarmup   2: 1 op, 464463500.00 ns, 464.4635 ms/op
+WorkloadWarmup   3: 1 op, 475029700.00 ns, 475.0297 ms/op
+WorkloadWarmup   4: 1 op, 468116900.00 ns, 468.1169 ms/op
+WorkloadWarmup   5: 1 op, 464798300.00 ns, 464.7983 ms/op
+
+// BeforeActualRun
+WorkloadActual   1: 1 op, 443916700.00 ns, 443.9167 ms/op
+WorkloadActual   2: 1 op, 483469600.00 ns, 483.4696 ms/op
+WorkloadActual   3: 1 op, 411588700.00 ns, 411.5887 ms/op
+WorkloadActual   4: 1 op, 453711200.00 ns, 453.7112 ms/op
+WorkloadActual   5: 1 op, 413856600.00 ns, 413.8566 ms/op
+WorkloadActual   6: 1 op, 472141700.00 ns, 472.1417 ms/op
+WorkloadActual   7: 1 op, 426097100.00 ns, 426.0971 ms/op
+WorkloadActual   8: 1 op, 425818900.00 ns, 425.8189 ms/op
+WorkloadActual   9: 1 op, 473525100.00 ns, 473.5251 ms/op
+WorkloadActual  10: 1 op, 450530300.00 ns, 450.5303 ms/op
+WorkloadActual  11: 1 op, 426541500.00 ns, 426.5415 ms/op
+WorkloadActual  12: 1 op, 401029600.00 ns, 401.0296 ms/op
+WorkloadActual  13: 1 op, 461234700.00 ns, 461.2347 ms/op
+WorkloadActual  14: 1 op, 447377700.00 ns, 447.3777 ms/op
+WorkloadActual  15: 1 op, 411702100.00 ns, 411.7021 ms/op
+WorkloadActual  16: 1 op, 407338400.00 ns, 407.3384 ms/op
+WorkloadActual  17: 1 op, 450691100.00 ns, 450.6911 ms/op
+WorkloadActual  18: 1 op, 409637200.00 ns, 409.6372 ms/op
+WorkloadActual  19: 1 op, 424602700.00 ns, 424.6027 ms/op
+WorkloadActual  20: 1 op, 425013500.00 ns, 425.0135 ms/op
+
+// AfterActualRun
+WorkloadResult   1: 1 op, 443916700.00 ns, 443.9167 ms/op
+WorkloadResult   2: 1 op, 483469600.00 ns, 483.4696 ms/op
+WorkloadResult   3: 1 op, 411588700.00 ns, 411.5887 ms/op
+WorkloadResult   4: 1 op, 453711200.00 ns, 453.7112 ms/op
+WorkloadResult   5: 1 op, 413856600.00 ns, 413.8566 ms/op
+WorkloadResult   6: 1 op, 472141700.00 ns, 472.1417 ms/op
+WorkloadResult   7: 1 op, 426097100.00 ns, 426.0971 ms/op
+WorkloadResult   8: 1 op, 425818900.00 ns, 425.8189 ms/op
+WorkloadResult   9: 1 op, 473525100.00 ns, 473.5251 ms/op
+WorkloadResult  10: 1 op, 450530300.00 ns, 450.5303 ms/op
+WorkloadResult  11: 1 op, 426541500.00 ns, 426.5415 ms/op
+WorkloadResult  12: 1 op, 401029600.00 ns, 401.0296 ms/op
+WorkloadResult  13: 1 op, 461234700.00 ns, 461.2347 ms/op
+WorkloadResult  14: 1 op, 447377700.00 ns, 447.3777 ms/op
+WorkloadResult  15: 1 op, 411702100.00 ns, 411.7021 ms/op
+WorkloadResult  16: 1 op, 407338400.00 ns, 407.3384 ms/op
+WorkloadResult  17: 1 op, 450691100.00 ns, 450.6911 ms/op
+WorkloadResult  18: 1 op, 409637200.00 ns, 409.6372 ms/op
+WorkloadResult  19: 1 op, 424602700.00 ns, 424.6027 ms/op
+WorkloadResult  20: 1 op, 425013500.00 ns, 425.0135 ms/op
+
+// AfterAll
+// Benchmark Process 9172 has exited with code 0.
+
+Mean = 435.991 ms, StdErr = 5.500 ms (1.26%), N = 20, StdDev = 24.597 ms
+Min = 401.030 ms, Q1 = 413.318 ms, Median = 426.319 ms, Q3 = 451.446 ms, Max = 483.470 ms
+IQR = 38.128 ms, LowerFence = 356.126 ms, UpperFence = 508.638 ms
+ConfidenceInterval = [414.632 ms; 457.350 ms] (CI 99.9%), Margin = 21.359 ms (4.90% of Mean)
+Skewness = 0.36, Kurtosis = 1.78, MValue = 3.2
+
+// ***** BenchmarkRunner: Finish  *****
+
+// * Export *
+  BenchmarkDotNet.Artifacts\results\ConsoleApp1.Program-report.csv
+  BenchmarkDotNet.Artifacts\results\ConsoleApp1.Program-report-github.md
+  BenchmarkDotNet.Artifacts\results\ConsoleApp1.Program-report.html
+
+// * Detailed results *
+Program.InsertUser: Job-KVTKKL(IterationCount=20, LaunchCount=1, RunStrategy=Throughput, WarmupCount=5)
+Runtime = .NET 5.0.13 (5.0.1321.56516), X64 RyuJIT; GC = Concurrent Workstation
+Mean = 435.991 ms, StdErr = 5.500 ms (1.26%), N = 20, StdDev = 24.597 ms
+Min = 401.030 ms, Q1 = 413.318 ms, Median = 426.319 ms, Q3 = 451.446 ms, Max = 483.470 ms
+IQR = 38.128 ms, LowerFence = 356.126 ms, UpperFence = 508.638 ms
+ConfidenceInterval = [414.632 ms; 457.350 ms] (CI 99.9%), Margin = 21.359 ms (4.90% of Mean)
+Skewness = 0.36, Kurtosis = 1.78, MValue = 3.2
+-------------------- Histogram --------------------
+[389.136 ms ; 405.047 ms) | @
+[405.047 ms ; 428.833 ms) | @@@@@@@@@@
+[428.833 ms ; 440.682 ms) | 
+[440.682 ms ; 464.469 ms) | @@@@@@
+[464.469 ms ; 489.699 ms) | @@@
+---------------------------------------------------
+
+// * Summary *
+
+BenchmarkDotNet=v0.13.1, OS=Windows 10.0.19043.1415 (21H1/May2021Update)
+11th Gen Intel Core i5-1135G7 2.40GHz, 1 CPU, 8 logical and 4 physical cores
+.NET SDK=5.0.404
+  [Host]     : .NET 5.0.13 (5.0.1321.56516), X64 RyuJIT
+  Job-KVTKKL : .NET 5.0.13 (5.0.1321.56516), X64 RyuJIT
+
+IterationCount=20  LaunchCount=1  RunStrategy=Throughput  
+WarmupCount=5  
+
+|     Method |     Mean |    Error |   StdDev |   Median |
+|----------- |---------:|---------:|---------:|---------:|
+| InsertUser | 436.0 ms | 21.36 ms | 24.60 ms | 426.3 ms |
+
+// * Warnings *
+MultimodalDistribution
+  Program.InsertUser: IterationCount=20, LaunchCount=1, RunStrategy=Throughput, WarmupCount=5 -> It seems that the distribution can have several modes (mValue = 3.2)
+
+// * Legends *
+  Mean   : Arithmetic mean of all measurements
+  Error  : Half of 99.9% confidence interval
+  StdDev : Standard deviation of all measurements
+  Median : Value separating the higher half of all measurements (50th percentile)
+  1 ms   : 1 Millisecond (0.001 sec)
+
+// ***** BenchmarkRunner: End *****
+// ** Remained 0 benchmark(s) to run **
+Run time: 00:00:12 (12.97 sec), executed benchmarks: 1
+
+Global total time: 00:00:16 (16.88 sec), executed benchmarks: 1
+// * Artifacts cleanup *

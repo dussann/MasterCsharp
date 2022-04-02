@@ -1,0 +1,123 @@
+// Validating benchmarks:
+// ***** BenchmarkRunner: Start   *****
+// ***** Found 2 benchmark(s) in total *****
+// ***** Building 1 exe(s) in Parallel: Start   *****
+// start dotnet restore  /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 /p:Deterministic=true /p:Optimize=true in D:\Users\HP\source\repos\Stackoverflow\ConsoleApp1\bin\Release\net5.0\ae70778f-f8d2-4367-9e30-a97d6e889ba9
+// command took 1.33s and exited with 0
+// start dotnet build -c Release  --no-restore /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 /p:Deterministic=true /p:Optimize=true in D:\Users\HP\source\repos\Stackoverflow\ConsoleApp1\bin\Release\net5.0\ae70778f-f8d2-4367-9e30-a97d6e889ba9
+// command took 2.43s and exited with 0
+// ***** Done, took 00:00:03 (3.83 sec)   *****
+// Found 2 benchmarks:
+//   Program.InsertUser: Job-CCNXTG(IterationCount=1, RunStrategy=ColdStart)
+//   Program.DeleteUser: Job-CCNXTG(IterationCount=1, RunStrategy=ColdStart)
+
+// **************************
+// Benchmark: Program.InsertUser: Job-CCNXTG(IterationCount=1, RunStrategy=ColdStart)
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "ae70778f-f8d2-4367-9e30-a97d6e889ba9.dll" --benchmarkName "ConsoleApp1.Program.InsertUser" --job "IterationCount=1, RunStrategy=ColdStart" --benchmarkId 0 in D:\Users\HP\source\repos\Stackoverflow\ConsoleApp1\bin\Release\net5.0\ae70778f-f8d2-4367-9e30-a97d6e889ba9\bin\Release\net5.0
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// Runtime=.NET 5.0.13 (5.0.1321.56516), X64 RyuJIT
+// GC=Concurrent Workstation
+// Job: Job-LHBBZG(IterationCount=1, RunStrategy=ColdStart)
+
+// BeforeActualRun
+WorkloadActual   1: 1 op, 10163535500.00 ns, 10.1635 s/op
+
+// AfterActualRun
+WorkloadResult   1: 1 op, 10163535500.00 ns, 10.1635 s/op
+
+// AfterAll
+// Benchmark Process 7060 has exited with code 0.
+
+Mean = 10.164 s, StdErr = 0.000 s (0.00%), N = 1, StdDev = 0.000 s
+Min = 10.164 s, Q1 = 10.164 s, Median = 10.164 s, Q3 = 10.164 s, Max = 10.164 s
+IQR = 0.000 s, LowerFence = 10.164 s, UpperFence = 10.164 s
+ConfidenceInterval = [NaN s; NaN s] (CI 99.9%), Margin = NaN s (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+
+// **************************
+// Benchmark: Program.DeleteUser: Job-CCNXTG(IterationCount=1, RunStrategy=ColdStart)
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "ae70778f-f8d2-4367-9e30-a97d6e889ba9.dll" --benchmarkName "ConsoleApp1.Program.DeleteUser" --job "IterationCount=1, RunStrategy=ColdStart" --benchmarkId 1 in D:\Users\HP\source\repos\Stackoverflow\ConsoleApp1\bin\Release\net5.0\ae70778f-f8d2-4367-9e30-a97d6e889ba9\bin\Release\net5.0
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// Runtime=.NET 5.0.13 (5.0.1321.56516), X64 RyuJIT
+// GC=Concurrent Workstation
+// Job: Job-MIQNYD(IterationCount=1, RunStrategy=ColdStart)
+
+// BeforeActualRun
+WorkloadActual   1: 1 op, 879732300.00 ns, 879.7323 ms/op
+
+// AfterActualRun
+WorkloadResult   1: 1 op, 879732300.00 ns, 879.7323 ms/op
+
+// AfterAll
+// Benchmark Process 9972 has exited with code 0.
+
+Mean = 879.732 ms, StdErr = 0.000 ms (0.00%), N = 1, StdDev = 0.000 ms
+Min = 879.732 ms, Q1 = 879.732 ms, Median = 879.732 ms, Q3 = 879.732 ms, Max = 879.732 ms
+IQR = 0.000 ms, LowerFence = 879.732 ms, UpperFence = 879.732 ms
+ConfidenceInterval = [NaN ms; NaN ms] (CI 99.9%), Margin = NaN ms (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+
+// ***** BenchmarkRunner: Finish  *****
+
+// * Export *
+  BenchmarkDotNet.Artifacts\results\ConsoleApp1.Program-report.csv
+  BenchmarkDotNet.Artifacts\results\ConsoleApp1.Program-report-github.md
+  BenchmarkDotNet.Artifacts\results\ConsoleApp1.Program-report.html
+
+// * Detailed results *
+Program.InsertUser: Job-CCNXTG(IterationCount=1, RunStrategy=ColdStart)
+Runtime = .NET 5.0.13 (5.0.1321.56516), X64 RyuJIT; GC = Concurrent Workstation
+Mean = 10.164 s, StdErr = 0.000 s (0.00%), N = 1, StdDev = 0.000 s
+Min = 10.164 s, Q1 = 10.164 s, Median = 10.164 s, Q3 = 10.164 s, Max = 10.164 s
+IQR = 0.000 s, LowerFence = 10.164 s, UpperFence = 10.164 s
+ConfidenceInterval = [NaN s; NaN s] (CI 99.9%), Margin = NaN s (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+-------------------- Histogram --------------------
+[10.164 s ; 10.164 s) | @
+---------------------------------------------------
+
+Program.DeleteUser: Job-CCNXTG(IterationCount=1, RunStrategy=ColdStart)
+Runtime = .NET 5.0.13 (5.0.1321.56516), X64 RyuJIT; GC = Concurrent Workstation
+Mean = 879.732 ms, StdErr = 0.000 ms (0.00%), N = 1, StdDev = 0.000 ms
+Min = 879.732 ms, Q1 = 879.732 ms, Median = 879.732 ms, Q3 = 879.732 ms, Max = 879.732 ms
+IQR = 0.000 ms, LowerFence = 879.732 ms, UpperFence = 879.732 ms
+ConfidenceInterval = [NaN ms; NaN ms] (CI 99.9%), Margin = NaN ms (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+-------------------- Histogram --------------------
+[879.732 ms ; 879.732 ms) | @
+---------------------------------------------------
+
+// * Summary *
+
+BenchmarkDotNet=v0.13.1, OS=Windows 10.0.19043.1415 (21H1/May2021Update)
+11th Gen Intel Core i5-1135G7 2.40GHz, 1 CPU, 8 logical and 4 physical cores
+.NET SDK=5.0.404
+  [Host]     : .NET 5.0.13 (5.0.1321.56516), X64 RyuJIT
+  Job-CCNXTG : .NET 5.0.13 (5.0.1321.56516), X64 RyuJIT
+
+IterationCount=1  RunStrategy=ColdStart  
+
+|     Method |        Mean | Error |
+|----------- |------------:|------:|
+| InsertUser | 10,163.5 ms |    NA |
+| DeleteUser |    879.7 ms |    NA |
+
+// * Legends *
+  Mean  : Arithmetic mean of all measurements
+  Error : Half of 99.9% confidence interval
+  1 ms  : 1 Millisecond (0.001 sec)
+
+// ***** BenchmarkRunner: End *****
+// ** Remained 0 benchmark(s) to run **
+Run time: 00:00:11 (11.74 sec), executed benchmarks: 2
+
+Global total time: 00:00:15 (15.58 sec), executed benchmarks: 2
+// * Artifacts cleanup *

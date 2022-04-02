@@ -1,0 +1,83 @@
+// Validating benchmarks:
+// ***** BenchmarkRunner: Start   *****
+// ***** Found 1 benchmark(s) in total *****
+// ***** Building 1 exe(s) in Parallel: Start   *****
+// start dotnet restore  /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 /p:Deterministic=true /p:Optimize=true in D:\Users\HP\source\repos\Stackoverflow\ConsoleApp1\bin\Release\net5.0\4af7388d-0abc-46a7-ae3a-6713d78e2116
+// command took 1.35s and exited with 0
+// start dotnet build -c Release  --no-restore /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 /p:Deterministic=true /p:Optimize=true in D:\Users\HP\source\repos\Stackoverflow\ConsoleApp1\bin\Release\net5.0\4af7388d-0abc-46a7-ae3a-6713d78e2116
+// command took 2.41s and exited with 0
+// ***** Done, took 00:00:03 (3.82 sec)   *****
+// Found 1 benchmarks:
+//   Program.ReadUser: Job-BJSKSR(IterationCount=1, RunStrategy=ColdStart)
+
+// **************************
+// Benchmark: Program.ReadUser: Job-BJSKSR(IterationCount=1, RunStrategy=ColdStart)
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "4af7388d-0abc-46a7-ae3a-6713d78e2116.dll" --benchmarkName "ConsoleApp1.Program.ReadUser" --job "IterationCount=1, RunStrategy=ColdStart" --benchmarkId 0 in D:\Users\HP\source\repos\Stackoverflow\ConsoleApp1\bin\Release\net5.0\4af7388d-0abc-46a7-ae3a-6713d78e2116\bin\Release\net5.0
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// Runtime=.NET 5.0.13 (5.0.1321.56516), X64 RyuJIT
+// GC=Concurrent Workstation
+// Job: Job-QTTELP(IterationCount=1, RunStrategy=ColdStart)
+
+// BeforeActualRun
+WorkloadActual   1: 1 op, 800434300.00 ns, 800.4343 ms/op
+
+// AfterActualRun
+WorkloadResult   1: 1 op, 800434300.00 ns, 800.4343 ms/op
+
+// AfterAll
+// Benchmark Process 16988 has exited with code 0.
+
+Mean = 800.434 ms, StdErr = 0.000 ms (0.00%), N = 1, StdDev = 0.000 ms
+Min = 800.434 ms, Q1 = 800.434 ms, Median = 800.434 ms, Q3 = 800.434 ms, Max = 800.434 ms
+IQR = 0.000 ms, LowerFence = 800.434 ms, UpperFence = 800.434 ms
+ConfidenceInterval = [NaN ms; NaN ms] (CI 99.9%), Margin = NaN ms (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+
+// ***** BenchmarkRunner: Finish  *****
+
+// * Export *
+  BenchmarkDotNet.Artifacts\results\ConsoleApp1.Program-report.csv
+  BenchmarkDotNet.Artifacts\results\ConsoleApp1.Program-report-github.md
+  BenchmarkDotNet.Artifacts\results\ConsoleApp1.Program-report.html
+
+// * Detailed results *
+Program.ReadUser: Job-BJSKSR(IterationCount=1, RunStrategy=ColdStart)
+Runtime = .NET 5.0.13 (5.0.1321.56516), X64 RyuJIT; GC = Concurrent Workstation
+Mean = 800.434 ms, StdErr = 0.000 ms (0.00%), N = 1, StdDev = 0.000 ms
+Min = 800.434 ms, Q1 = 800.434 ms, Median = 800.434 ms, Q3 = 800.434 ms, Max = 800.434 ms
+IQR = 0.000 ms, LowerFence = 800.434 ms, UpperFence = 800.434 ms
+ConfidenceInterval = [NaN ms; NaN ms] (CI 99.9%), Margin = NaN ms (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+-------------------- Histogram --------------------
+[800.434 ms ; 800.434 ms) | @
+---------------------------------------------------
+
+// * Summary *
+
+BenchmarkDotNet=v0.13.1, OS=Windows 10.0.19043.1415 (21H1/May2021Update)
+11th Gen Intel Core i5-1135G7 2.40GHz, 1 CPU, 8 logical and 4 physical cores
+.NET SDK=5.0.404
+  [Host]     : .NET 5.0.13 (5.0.1321.56516), X64 RyuJIT
+  Job-BJSKSR : .NET 5.0.13 (5.0.1321.56516), X64 RyuJIT
+
+IterationCount=1  RunStrategy=ColdStart  
+
+|   Method |     Mean | Error |
+|--------- |---------:|------:|
+| ReadUser | 800.4 ms |    NA |
+
+// * Legends *
+  Mean  : Arithmetic mean of all measurements
+  Error : Half of 99.9% confidence interval
+  1 ms  : 1 Millisecond (0.001 sec)
+
+// ***** BenchmarkRunner: End *****
+// ** Remained 0 benchmark(s) to run **
+Run time: 00:00:01 (1.29 sec), executed benchmarks: 1
+
+Global total time: 00:00:05 (5.12 sec), executed benchmarks: 1
+// * Artifacts cleanup *

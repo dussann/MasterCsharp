@@ -1,0 +1,129 @@
+// Validating benchmarks:
+// ***** BenchmarkRunner: Start   *****
+// ***** Found 1 benchmark(s) in total *****
+// ***** Building 1 exe(s) in Parallel: Start   *****
+// start dotnet restore  /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 /p:Deterministic=true /p:Optimize=true in D:\Users\HP\source\repos\Stackoverflow\ConsoleApp1\bin\Release\net5.0\8d8631e1-ea72-4efb-b7d4-cd6a969ff46e
+// command took 1.35s and exited with 0
+// start dotnet build -c Release  --no-restore /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 /p:Deterministic=true /p:Optimize=true in D:\Users\HP\source\repos\Stackoverflow\ConsoleApp1\bin\Release\net5.0\8d8631e1-ea72-4efb-b7d4-cd6a969ff46e
+// command took 2.43s and exited with 0
+// ***** Done, took 00:00:03 (3.85 sec)   *****
+// Found 1 benchmarks:
+//   Program.InsertUser: Job-PAMJKO(IterationCount=1, LaunchCount=1, WarmupCount=1)
+
+// **************************
+// Benchmark: Program.InsertUser: Job-PAMJKO(IterationCount=1, LaunchCount=1, WarmupCount=1)
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "8d8631e1-ea72-4efb-b7d4-cd6a969ff46e.dll" --benchmarkName "ConsoleApp1.Program.InsertUser" --job "IterationCount=1, LaunchCount=1, WarmupCount=1" --benchmarkId 0 in D:\Users\HP\source\repos\Stackoverflow\ConsoleApp1\bin\Release\net5.0\8d8631e1-ea72-4efb-b7d4-cd6a969ff46e\bin\Release\net5.0
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// Runtime=.NET 5.0.13 (5.0.1321.56516), X64 RyuJIT
+// GC=Concurrent Workstation
+// Job: Job-SVOOOG(IterationCount=1, LaunchCount=1, WarmupCount=1)
+
+OverheadJitting  1: 1 op, 191600.00 ns, 191.6000 us/op
+WorkloadJitting  1: 1 op, 785045000.00 ns, 785.0450 ms/op
+
+OverheadJitting  2: 1 op, 300.00 ns, 300.0000 ns/op
+WorkloadJitting  2: 1 op, 26916700.00 ns, 26.9167 ms/op
+
+OverheadJitting  3: 16 op, 219600.00 ns, 13.7250 us/op
+WorkloadJitting  3: 16 op, 130294100.00 ns, 8.1434 ms/op
+
+WorkloadPilot    1: 16 op, 136427000.00 ns, 8.5267 ms/op
+WorkloadPilot    2: 32 op, 338565900.00 ns, 10.5802 ms/op
+WorkloadPilot    3: 64 op, 542212800.00 ns, 8.4721 ms/op
+
+OverheadWarmup   1: 64 op, 1900.00 ns, 29.6875 ns/op
+OverheadWarmup   2: 64 op, 1000.00 ns, 15.6250 ns/op
+OverheadWarmup   3: 64 op, 700.00 ns, 10.9375 ns/op
+OverheadWarmup   4: 64 op, 500.00 ns, 7.8125 ns/op
+OverheadWarmup   5: 64 op, 600.00 ns, 9.3750 ns/op
+OverheadWarmup   6: 64 op, 500.00 ns, 7.8125 ns/op
+OverheadWarmup   7: 64 op, 700.00 ns, 10.9375 ns/op
+OverheadWarmup   8: 64 op, 1100.00 ns, 17.1875 ns/op
+OverheadWarmup   9: 64 op, 1000.00 ns, 15.6250 ns/op
+
+OverheadActual   1: 64 op, 1300.00 ns, 20.3125 ns/op
+OverheadActual   2: 64 op, 800.00 ns, 12.5000 ns/op
+OverheadActual   3: 64 op, 1000.00 ns, 15.6250 ns/op
+OverheadActual   4: 64 op, 700.00 ns, 10.9375 ns/op
+OverheadActual   5: 64 op, 700.00 ns, 10.9375 ns/op
+OverheadActual   6: 64 op, 500.00 ns, 7.8125 ns/op
+OverheadActual   7: 64 op, 600.00 ns, 9.3750 ns/op
+OverheadActual   8: 64 op, 1000.00 ns, 15.6250 ns/op
+OverheadActual   9: 64 op, 600.00 ns, 9.3750 ns/op
+OverheadActual  10: 64 op, 600.00 ns, 9.3750 ns/op
+OverheadActual  11: 64 op, 800.00 ns, 12.5000 ns/op
+OverheadActual  12: 64 op, 500.00 ns, 7.8125 ns/op
+OverheadActual  13: 64 op, 600.00 ns, 9.3750 ns/op
+OverheadActual  14: 64 op, 700.00 ns, 10.9375 ns/op
+OverheadActual  15: 64 op, 500.00 ns, 7.8125 ns/op
+OverheadActual  16: 64 op, 500.00 ns, 7.8125 ns/op
+OverheadActual  17: 64 op, 800.00 ns, 12.5000 ns/op
+OverheadActual  18: 64 op, 600.00 ns, 9.3750 ns/op
+OverheadActual  19: 64 op, 2400.00 ns, 37.5000 ns/op
+OverheadActual  20: 64 op, 1000.00 ns, 15.6250 ns/op
+
+WorkloadWarmup   1: 64 op, 653129800.00 ns, 10.2052 ms/op
+
+// BeforeActualRun
+WorkloadActual   1: 64 op, 546407000.00 ns, 8.5376 ms/op
+
+// AfterActualRun
+WorkloadResult   1: 64 op, 546406300.00 ns, 8.5376 ms/op
+
+// AfterAll
+// Benchmark Process 12916 has exited with code 0.
+
+Mean = 8.538 ms, StdErr = 0.000 ms (0.00%), N = 1, StdDev = 0.000 ms
+Min = 8.538 ms, Q1 = 8.538 ms, Median = 8.538 ms, Q3 = 8.538 ms, Max = 8.538 ms
+IQR = 0.000 ms, LowerFence = 8.538 ms, UpperFence = 8.538 ms
+ConfidenceInterval = [NaN ms; NaN ms] (CI 99.9%), Margin = NaN ms (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+
+// ***** BenchmarkRunner: Finish  *****
+
+// * Export *
+  BenchmarkDotNet.Artifacts\results\ConsoleApp1.Program-report.csv
+  BenchmarkDotNet.Artifacts\results\ConsoleApp1.Program-report-github.md
+  BenchmarkDotNet.Artifacts\results\ConsoleApp1.Program-report.html
+
+// * Detailed results *
+Program.InsertUser: Job-PAMJKO(IterationCount=1, LaunchCount=1, WarmupCount=1)
+Runtime = .NET 5.0.13 (5.0.1321.56516), X64 RyuJIT; GC = Concurrent Workstation
+Mean = 8.538 ms, StdErr = 0.000 ms (0.00%), N = 1, StdDev = 0.000 ms
+Min = 8.538 ms, Q1 = 8.538 ms, Median = 8.538 ms, Q3 = 8.538 ms, Max = 8.538 ms
+IQR = 0.000 ms, LowerFence = 8.538 ms, UpperFence = 8.538 ms
+ConfidenceInterval = [NaN ms; NaN ms] (CI 99.9%), Margin = NaN ms (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+-------------------- Histogram --------------------
+[8.538 ms ; 8.538 ms) | @
+---------------------------------------------------
+
+// * Summary *
+
+BenchmarkDotNet=v0.13.1, OS=Windows 10.0.19043.1415 (21H1/May2021Update)
+11th Gen Intel Core i5-1135G7 2.40GHz, 1 CPU, 8 logical and 4 physical cores
+.NET SDK=5.0.404
+  [Host]     : .NET 5.0.13 (5.0.1321.56516), X64 RyuJIT
+  Job-PAMJKO : .NET 5.0.13 (5.0.1321.56516), X64 RyuJIT
+
+IterationCount=1  LaunchCount=1  WarmupCount=1  
+
+|     Method |     Mean | Error |
+|----------- |---------:|------:|
+| InsertUser | 8.538 ms |    NA |
+
+// * Legends *
+  Mean  : Arithmetic mean of all measurements
+  Error : Half of 99.9% confidence interval
+  1 ms  : 1 Millisecond (0.001 sec)
+
+// ***** BenchmarkRunner: End *****
+// ** Remained 0 benchmark(s) to run **
+Run time: 00:00:03 (3.78 sec), executed benchmarks: 1
+
+Global total time: 00:00:07 (7.64 sec), executed benchmarks: 1
+// * Artifacts cleanup *

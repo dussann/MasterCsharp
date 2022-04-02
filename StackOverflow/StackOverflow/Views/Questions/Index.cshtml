@@ -1,0 +1,35 @@
+﻿@model IEnumerable<StackOverflow.Models.Question>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Welcome @ViewData["Greeting"]</h1>
+
+<p>
+    <a asp-action="Create">Add new question</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Questions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Header)
+                </td>               
+                
+                <td>                   
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

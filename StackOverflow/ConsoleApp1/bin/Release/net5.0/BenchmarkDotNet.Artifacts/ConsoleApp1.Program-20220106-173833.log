@@ -1,0 +1,123 @@
+// Validating benchmarks:
+// ***** BenchmarkRunner: Start   *****
+// ***** Found 2 benchmark(s) in total *****
+// ***** Building 1 exe(s) in Parallel: Start   *****
+// start dotnet restore  /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 /p:Deterministic=true /p:Optimize=true in D:\Users\HP\source\repos\Stackoverflow\ConsoleApp1\bin\Release\net5.0\9449a9d9-324c-4572-9fd5-ddcb83ca0de4
+// command took 1.34s and exited with 0
+// start dotnet build -c Release  --no-restore /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 /p:Deterministic=true /p:Optimize=true in D:\Users\HP\source\repos\Stackoverflow\ConsoleApp1\bin\Release\net5.0\9449a9d9-324c-4572-9fd5-ddcb83ca0de4
+// command took 2.51s and exited with 0
+// ***** Done, took 00:00:03 (3.92 sec)   *****
+// Found 2 benchmarks:
+//   Program.InsertUser: Job-PLQXUF(IterationCount=1, RunStrategy=ColdStart)
+//   Program.ReadUser: Job-PLQXUF(IterationCount=1, RunStrategy=ColdStart)
+
+// **************************
+// Benchmark: Program.InsertUser: Job-PLQXUF(IterationCount=1, RunStrategy=ColdStart)
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "9449a9d9-324c-4572-9fd5-ddcb83ca0de4.dll" --benchmarkName "ConsoleApp1.Program.InsertUser" --job "IterationCount=1, RunStrategy=ColdStart" --benchmarkId 0 in D:\Users\HP\source\repos\Stackoverflow\ConsoleApp1\bin\Release\net5.0\9449a9d9-324c-4572-9fd5-ddcb83ca0de4\bin\Release\net5.0
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// Runtime=.NET 5.0.13 (5.0.1321.56516), X64 RyuJIT
+// GC=Concurrent Workstation
+// Job: Job-GSTMBV(IterationCount=1, RunStrategy=ColdStart)
+
+// BeforeActualRun
+WorkloadActual   1: 1 op, 906797800.00 ns, 906.7978 ms/op
+
+// AfterActualRun
+WorkloadResult   1: 1 op, 906797800.00 ns, 906.7978 ms/op
+
+// AfterAll
+// Benchmark Process 16112 has exited with code 0.
+
+Mean = 906.798 ms, StdErr = 0.000 ms (0.00%), N = 1, StdDev = 0.000 ms
+Min = 906.798 ms, Q1 = 906.798 ms, Median = 906.798 ms, Q3 = 906.798 ms, Max = 906.798 ms
+IQR = 0.000 ms, LowerFence = 906.798 ms, UpperFence = 906.798 ms
+ConfidenceInterval = [NaN ms; NaN ms] (CI 99.9%), Margin = NaN ms (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+
+// **************************
+// Benchmark: Program.ReadUser: Job-PLQXUF(IterationCount=1, RunStrategy=ColdStart)
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "9449a9d9-324c-4572-9fd5-ddcb83ca0de4.dll" --benchmarkName "ConsoleApp1.Program.ReadUser" --job "IterationCount=1, RunStrategy=ColdStart" --benchmarkId 1 in D:\Users\HP\source\repos\Stackoverflow\ConsoleApp1\bin\Release\net5.0\9449a9d9-324c-4572-9fd5-ddcb83ca0de4\bin\Release\net5.0
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// Runtime=.NET 5.0.13 (5.0.1321.56516), X64 RyuJIT
+// GC=Concurrent Workstation
+// Job: Job-GUOTIM(IterationCount=1, RunStrategy=ColdStart)
+
+// BeforeActualRun
+WorkloadActual   1: 1 op, 772646200.00 ns, 772.6462 ms/op
+
+// AfterActualRun
+WorkloadResult   1: 1 op, 772646200.00 ns, 772.6462 ms/op
+
+// AfterAll
+// Benchmark Process 9096 has exited with code 0.
+
+Mean = 772.646 ms, StdErr = 0.000 ms (0.00%), N = 1, StdDev = 0.000 ms
+Min = 772.646 ms, Q1 = 772.646 ms, Median = 772.646 ms, Q3 = 772.646 ms, Max = 772.646 ms
+IQR = 0.000 ms, LowerFence = 772.646 ms, UpperFence = 772.646 ms
+ConfidenceInterval = [NaN ms; NaN ms] (CI 99.9%), Margin = NaN ms (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+
+// ***** BenchmarkRunner: Finish  *****
+
+// * Export *
+  BenchmarkDotNet.Artifacts\results\ConsoleApp1.Program-report.csv
+  BenchmarkDotNet.Artifacts\results\ConsoleApp1.Program-report-github.md
+  BenchmarkDotNet.Artifacts\results\ConsoleApp1.Program-report.html
+
+// * Detailed results *
+Program.InsertUser: Job-PLQXUF(IterationCount=1, RunStrategy=ColdStart)
+Runtime = .NET 5.0.13 (5.0.1321.56516), X64 RyuJIT; GC = Concurrent Workstation
+Mean = 906.798 ms, StdErr = 0.000 ms (0.00%), N = 1, StdDev = 0.000 ms
+Min = 906.798 ms, Q1 = 906.798 ms, Median = 906.798 ms, Q3 = 906.798 ms, Max = 906.798 ms
+IQR = 0.000 ms, LowerFence = 906.798 ms, UpperFence = 906.798 ms
+ConfidenceInterval = [NaN ms; NaN ms] (CI 99.9%), Margin = NaN ms (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+-------------------- Histogram --------------------
+[906.798 ms ; 906.798 ms) | @
+---------------------------------------------------
+
+Program.ReadUser: Job-PLQXUF(IterationCount=1, RunStrategy=ColdStart)
+Runtime = .NET 5.0.13 (5.0.1321.56516), X64 RyuJIT; GC = Concurrent Workstation
+Mean = 772.646 ms, StdErr = 0.000 ms (0.00%), N = 1, StdDev = 0.000 ms
+Min = 772.646 ms, Q1 = 772.646 ms, Median = 772.646 ms, Q3 = 772.646 ms, Max = 772.646 ms
+IQR = 0.000 ms, LowerFence = 772.646 ms, UpperFence = 772.646 ms
+ConfidenceInterval = [NaN ms; NaN ms] (CI 99.9%), Margin = NaN ms (NaN% of Mean)
+Skewness = NaN, Kurtosis = NaN, MValue = 2
+-------------------- Histogram --------------------
+[772.646 ms ; 772.646 ms) | @
+---------------------------------------------------
+
+// * Summary *
+
+BenchmarkDotNet=v0.13.1, OS=Windows 10.0.19043.1415 (21H1/May2021Update)
+11th Gen Intel Core i5-1135G7 2.40GHz, 1 CPU, 8 logical and 4 physical cores
+.NET SDK=5.0.404
+  [Host]     : .NET 5.0.13 (5.0.1321.56516), X64 RyuJIT
+  Job-PLQXUF : .NET 5.0.13 (5.0.1321.56516), X64 RyuJIT
+
+IterationCount=1  RunStrategy=ColdStart  
+
+|     Method |     Mean | Error |
+|----------- |---------:|------:|
+| InsertUser | 906.8 ms |    NA |
+|   ReadUser | 772.6 ms |    NA |
+
+// * Legends *
+  Mean  : Arithmetic mean of all measurements
+  Error : Half of 99.9% confidence interval
+  1 ms  : 1 Millisecond (0.001 sec)
+
+// ***** BenchmarkRunner: End *****
+// ** Remained 0 benchmark(s) to run **
+Run time: 00:00:02 (2.38 sec), executed benchmarks: 2
+
+Global total time: 00:00:06 (6.31 sec), executed benchmarks: 2
+// * Artifacts cleanup *
