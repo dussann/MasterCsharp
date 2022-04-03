@@ -32,7 +32,7 @@ namespace ConsoleApp1
             context.SaveChanges();
             stopwatch.Stop();
             Console.WriteLine("************************");
-            Console.WriteLine("Elapsed Time is {0} ms==================", stopwatch.ElapsedMilliseconds);
+            Console.WriteLine("Elapsed Time is {0} ms============", stopwatch.ElapsedMilliseconds);
         }
         
 
