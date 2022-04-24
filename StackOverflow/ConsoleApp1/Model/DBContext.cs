@@ -16,7 +16,7 @@ namespace ConsoleApp1.Model
         public DbSet<User> User { get; set; }
         public DbSet<Question> Question { get; set; }
         public DbSet<Answer> Answer { get; set; }
-       
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 23));

@@ -16,43 +16,90 @@ namespace ConsoleApp1
     public class Program
     {
         static void Main(string[] args)
-        {
-            
-            // Program.InsertUser();
-            Program.ReadUser();
+        {                 
+            Program.InsertUsers(500000);
+            // Program.ReadUser();
+            //Program.DeleteUser();
+            // Program.UpdateUser();
+
         }
-        public static void InsertUser()
+        public static void InsertUsers(int n)
         {
             Stopwatch stopwatch = new Stopwatch();
-            using var context = new DBContext();             
-            context.User.Add(new User() { FirstName="a",Country="USA",JobTitle=".NET developer",Password="123",UserName="c# User"});
+            using (var context = new DBContext())
+            {
+                try
+                {
+                    context.Database.EnsureDeleted();
+                    context.Database.EnsureCreated();
 
-            Console.WriteLine("************************");
-            stopwatch.Start();
-            context.SaveChanges();
-            stopwatch.Stop();
-            Console.WriteLine("************************");
-            Console.WriteLine("Elapsed Time is {0} ms============", stopwatch.ElapsedMilliseconds);
-        }
-        
-
+                    context.ChangeTracker.AutoDetectChangesEnabled = false;
+                    for (int i = 0; i < n; i++)
+                    {
+                        context.User.Add(new User() { FirstName = "John" + i, Country = "USA", JobTitle = ".NET developer", Password = "123", UserName = "c# User" });
+                    }
+                }
+                finally
+                {
+                    Console.WriteLine("Finally");
+                    context.ChangeTracker.AutoDetectChangesEnabled = true;
+                }
+                stopwatch.Start();
+                context.SaveChanges();
+                stopwatch.Stop();
+                Console.WriteLine("Insert {1} users - Elapsed Time is {0} ms============", stopwatch.ElapsedMilliseconds,n);
+            }
+        }       
        
         public static void ReadUser()
         {
+            // context.User.AsNoTracking().
             using (var context = new DBContext())
             {
                 Stopwatch stopwatch = new Stopwatch();
-
                 stopwatch.Start();
-                context.User.FirstOrDefault();
+                User user = context.User.FirstOrDefault();
                 stopwatch.Stop();
-                Console.WriteLine("Elapsed Time is {0} ms", stopwatch.ElapsedMilliseconds);
+                Console.WriteLine("Read user - Elapsed Time is {0} ms", stopwatch.ElapsedMilliseconds);               
             }
 
         }
 
+        public static void DeleteUser()
+        {
+
+            using (var context = new DBContext())
+            {
+                         
                 
-                public static void ReadUsers1000()
+                //entities.Database.ExecuteSqlCommand("TRUNCATE TABLE [Customers]");
+                /*context.User.RemoveRange(context.User);                
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                //var a = context.User.FirstOrDefault();
+                context.SaveChanges();
+                stopwatch.Stop();
+                Console.WriteLine("Delete all users - Elapsed Time is {0} ms", stopwatch.ElapsedMilliseconds);*/
+            }
+
+        }
+        public static void UpdateUser()
+        {
+            Stopwatch stopwatch = new Stopwatch();            
+            using (DBContext context = new DBContext())
+            {
+                stopwatch.Start();
+                User user = context.User.FirstOrDefault();
+                user.UserName = "New username from console";
+                context.SaveChanges();
+                stopwatch.Stop();
+                Console.WriteLine("Update user - Elapsed Time is {0} ms", stopwatch.ElapsedMilliseconds);
+            }
+        }
+
+
+
+        public static void ReadUsers1000()
                 {
                     using (var context = new DBContext())
                     {
