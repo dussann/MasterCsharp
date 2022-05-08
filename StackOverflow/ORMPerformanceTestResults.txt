@@ -1,3 +1,4 @@
+Hibernate(Java)
 -Batch insert je potrbno koristiti kako bi se izbegao outOfMemmoryException
 (povecava se Java Heap, a to je valjda povezano sa RAM memorijom i sistem kesom )
 GenerationType.IDENTITY ne podrzava Batch processing
@@ -5,56 +6,97 @@ GenerationType.IDENTITY ne podrzava Batch processing
 -When using PostgreSQL or MySQL, you don’t have to worry about the fetch size since the JDBC driver caches the entire result set up front,
  so there’s a single database roundtrip to materialize the result set and make it available to the application.
 
-
+EF Core(C#)
+-The ChangeTracker property provides access to change tracking information and operations about the currently loaded entity.
+ This ability is very important when we want to execute any of the database modification operations. EF Core has this kind of information(about tracking and operations) whether we create, modify it or delete an entity.
 -ADO.net has a better performance as it is directly connected to the data source which makes the processing much faster then EF core
  as it first translate LINQ queries to SQL and then process the query.
 -Entity states
 Every entity is associated with a given EntityState:
-	Detached entities are not being tracked by the DbContext.
-	Added entities are new and have not yet been inserted into the database. This means they will be inserted when SaveChanges is called.
-	Unchanged entities have not been changed since they were queried from the database. All entities returned from queries are initially in this state.
-	Modified entities have been changed since they were queried from the database. This means they will be updated when SaveChanges is called.
-	Deleted entities exist in the database, but are marked to be deleted when SaveChanges is called.
-
+	1.Detached - entities are not being tracked by the DbContext.
+	2.Added - entities are new and have not yet been inserted into the database. This means they will be inserted when SaveChanges is called.
+	3.Unchanged - entities have not been changed since they were queried from the database. All entities returned from queries are initially in this state.
+	4.Modified - entities have been changed since they were queried from the database. This means they will be updated when SaveChanges is called.
+	5.Deleted - entities exist in the database, but are marked to be deleted when SaveChanges is called.
+https://docs.microsoft.com/en-us/ef/core/change-tracking/
 =========CREATE=========
-Create user
+Create 
 	Hibernate - 65 ms
-	Entity - 90 ms
-	
-Create users 1000
+	Entity - 90 ms	
+Create  1000
 	Hibernate - 2100 ms
-	Entity - 550 ms
-	
-Create users 10000
+	Entity - 550 ms	
+Create  10000
 	Hibernate - 11500 ms
 	Entity - 2250 ms
-
-Create users 100000
+Create  100000
 	Hibernate - 19100 ms
-	Entity - 21394 ms
-	
-Create users 500000
+	Entity - 21394 ms	
+Create  500000
 	Hibernate - 98750 ms
 	Entity - 107527 ms
 =========READ===========
-Read user
+Read 
 	Hibernate - 70 ms
-	Entity - 1306 ms
-	
-Read user 1000
+	Entity - 1306 ms	
+Read  1000
 	Hibernate - 118 ms
 	Entity - 1250 ms
-
-Read user 10000
+Read  10000
 	Hibernate - 204 ms
 	Entity - 1340 ms
-
-
-Read user 100000
+Read  100000
 	Hibernate - 834 ms
 	Entity - 1853 ms
-
-
-Read user 500000
+Read  500000
 	Hibernate - 2879 ms
 	Entity - 3541 ms
+=========UPDATE===========
+Update 
+	Hibernate -  ms
+	Entity - 1137 ms	
+Update  1000
+	Hibernate -  ms
+	Entity - 1340 ms
+Update  10000
+	Hibernate -  ms
+	Entity - 3126 ms
+Update  100000
+	Hibernate -  ms
+	Entity - 23429 ms
+Update  500000
+	Hibernate -  ms
+	Entity - 101824 ms
+=========DELETE===========
+Delete 
+	Hibernate -  ms
+	Entity - 31 ms	
+Delete  1000
+	Hibernate -  ms
+	Entity - 241 ms
+Delete  10000
+	Hibernate -  ms
+	Entity - 2194 ms
+Delete  100000
+	Hibernate -  ms
+	Entity - 22810 ms
+Delete  500000
+	Hibernate -  ms
+	Entity - 120118 ms
+	
+=========CREATEREF=========
+Create 
+	Hibernate -  ms
+	Entity -  ms	
+Create  1000
+	Hibernate -  ms
+	Entity - 655 ms	
+Create  10000
+	Hibernate - 4806 ms
+	Entity -  ms
+Create  100000
+	Hibernate -  ms
+	Entity - 45827 ms	
+Create  500000
+	Hibernate - 247286 ms
+	Entity -  ms

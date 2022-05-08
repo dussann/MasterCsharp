@@ -12,133 +12,116 @@ using System.Linq;
 
 namespace ConsoleApp1
 {
-   
+
     public class Program
     {
         static void Main(string[] args)
-        {                 
-            Program.InsertUsers(500000);
-            // Program.ReadUser();
-            //Program.DeleteUser();
-            // Program.UpdateUser();
+        {
+            try
+            {
+                //Program.InsertUsers(10000);
+                //Program.ReadUser();
+                //Program.UpdateUser();
+                //Program.DeleteUser();
 
+                Program.InsertUsersWithRef(500000);
+
+            }
+            catch(Exception ex)
+            {
+
+                Console.WriteLine(ex.StackTrace);
+            }
+            
+
+        }
+        public static void InsertUsersWithRef(int n)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            using (var context = new DBContext())
+            {
+                context.Database.EnsureDeleted();
+                context.Database.EnsureCreated();
+                context.ChangeTracker.AutoDetectChangesEnabled = false;
+                
+                stopwatch.Start();
+                for (int i = 0; i < n; i++)
+                {
+                    User user = new User { FirstName = "John", UserName = "JohnDoe", Password="123",Country="Canada",JobTitle="Senior Software Developer" };
+                    user.Questions = new List<Question>() { new Question() { Content = "content", Header = "header" } };
+                    context.User.Add(user);
+                }
+                context.ChangeTracker.DetectChanges();
+                context.SaveChanges();
+                stopwatch.Stop();
+                Console.WriteLine("Insert {1} users - Elapsed Time is {0} ms============", stopwatch.ElapsedMilliseconds, context.User.ToArray().Length);
+                Console.Beep();
+            }
         }
         public static void InsertUsers(int n)
         {
             Stopwatch stopwatch = new Stopwatch();
             using (var context = new DBContext())
             {
-                try
-                {
-                    context.Database.EnsureDeleted();
-                    context.Database.EnsureCreated();
-
-                    context.ChangeTracker.AutoDetectChangesEnabled = false;
-                    for (int i = 0; i < n; i++)
-                    {
-                        context.User.Add(new User() { FirstName = "John" + i, Country = "USA", JobTitle = ".NET developer", Password = "123", UserName = "c# User" });
-                    }
-                }
-                finally
-                {
-                    Console.WriteLine("Finally");
-                    context.ChangeTracker.AutoDetectChangesEnabled = true;
-                }
+                context.Database.EnsureDeleted();
+                context.Database.EnsureCreated();
+                context.ChangeTracker.AutoDetectChangesEnabled = false;
+                
                 stopwatch.Start();
+                for (int i = 0; i < n; i++)
+                {                    
+                    context.User.Add(new User() { FirstName = "John", Country = "USA", JobTitle = ".NET developer", Password = "123", UserName = "c# User" });
+                }
+                context.ChangeTracker.DetectChanges();
                 context.SaveChanges();
                 stopwatch.Stop();
-                Console.WriteLine("Insert {1} users - Elapsed Time is {0} ms============", stopwatch.ElapsedMilliseconds,n);
+                Console.WriteLine("Insert {1} users - Elapsed Time is {0} ms============", stopwatch.ElapsedMilliseconds, n);
+                Console.Beep();
             }
-        }       
-       
+        }
+
         public static void ReadUser()
         {
-            // context.User.AsNoTracking().
+            Stopwatch stopwatch = new Stopwatch();
             using (var context = new DBContext())
             {
-                Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
-                User user = context.User.FirstOrDefault();
+                var users = context.User.ToArray();
                 stopwatch.Stop();
-                Console.WriteLine("Read user - Elapsed Time is {0} ms", stopwatch.ElapsedMilliseconds);               
+                Console.WriteLine("Read user - Elapsed Time is {0} ms", stopwatch.ElapsedMilliseconds);
             }
+            Console.Beep();
 
         }
 
         public static void DeleteUser()
         {
-
             using (var context = new DBContext())
             {
-                         
-                
-                //entities.Database.ExecuteSqlCommand("TRUNCATE TABLE [Customers]");
-                /*context.User.RemoveRange(context.User);                
+                Console.WriteLine(context.User.ToArray().Length);
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
-                //var a = context.User.FirstOrDefault();
+                context.User.RemoveRange(context.User);
                 context.SaveChanges();
                 stopwatch.Stop();
-                Console.WriteLine("Delete all users - Elapsed Time is {0} ms", stopwatch.ElapsedMilliseconds);*/
+                Console.WriteLine("Delete all users - Elapsed Time is {0} ms", stopwatch.ElapsedMilliseconds);
             }
-
         }
         public static void UpdateUser()
         {
-            Stopwatch stopwatch = new Stopwatch();            
+            Stopwatch stopwatch = new Stopwatch();
             using (DBContext context = new DBContext())
             {
                 stopwatch.Start();
-                User user = context.User.FirstOrDefault();
-                user.UserName = "New username from console";
+                context.User.UpdateRange(context.User);
+                foreach (var user in context.User)
+                {
+                    user.UserName = "Update user name4";
+                }
                 context.SaveChanges();
                 stopwatch.Stop();
-                Console.WriteLine("Update user - Elapsed Time is {0} ms", stopwatch.ElapsedMilliseconds);
+                Console.WriteLine("Update user - Elapsed Time is {0} ms {1} rows", stopwatch.ElapsedMilliseconds, context.User.ToArray().Length);
             }
         }
-
-
-
-        public static void ReadUsers1000()
-                {
-                    using (var context = new DBContext())
-                    {
-                        var list=context.User.ToList();                        
-                    }
-                }
-        /*
-
-                [Benchmark]
-                public void UpdateUser()
-                {
-                    using (DBContext context = new DBContext())
-                    {
-                        User user = context.User.FirstOrDefault();
-                        user.UserName = "New username from console";
-                        context.SaveChanges();
-                    }
-                }
-
-                          [Benchmark]
-                          public void UpdateUsers1000()
-                          {
-                              using (DBContext context = new DBContext())
-                              {               
-                                  foreach (User user in context.User.Take(1000))
-                                  {
-                                      user.FirstName = "aaaaaaaaa";
-                                  }
-                                  context.SaveChanges();
-                              }
-                          }*/
-
-        /* [Benchmark]
-          public void DeleteUser()
-          {
-              using DBContext context = new DBContext();
-              User user = context.User.FirstOrDefault();
-              context.User.Remove(user);
-              context.SaveChanges();
-          }*/
     }
 }
