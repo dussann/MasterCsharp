@@ -19,6 +19,8 @@ Every entity is associated with a given EntityState:
 	4.Modified - entities have been changed since they were queried from the database. This means they will be updated when SaveChanges is called.
 	5.Deleted - entities exist in the database, but are marked to be deleted when SaveChanges is called.
 https://docs.microsoft.com/en-us/ef/core/change-tracking/
+https://www.learnentityframeworkcore.com/dbcontext
+https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext.update?view=efcore-5.0
 =========CREATE=========
 Create 
 	Hibernate - 65 ms
@@ -85,9 +87,9 @@ Delete  500000
 	Entity - 120118 ms
 	
 =========CREATEREF=========
-Create 
+Create 	
 	Hibernate -  ms
-	Entity -  ms	
+	Entity - 184  ms	
 Create  1000
 	Hibernate -  ms
 	Entity - 655 ms	
@@ -100,3 +102,20 @@ Create  100000
 Create  500000
 	Hibernate - 247286 ms
 	Entity -  ms
+	
+=========READREF=========
+Read 	
+	Hibernate -  ms
+	Entity - 1432  ms	
+Read  1000
+	Hibernate -  ms
+	Entity - 1515 ms	
+Read  10000
+	Hibernate -  ms
+	Entity - 1606 ms
+Read  100000
+	Hibernate -  ms
+	Entity - 2401 ms	
+Read  500000
+	Hibernate -  ms
+	Entity - 5999 ms
