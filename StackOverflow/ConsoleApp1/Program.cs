@@ -19,31 +19,29 @@ namespace ConsoleApp1
         {
             try
             {
-                //Program.InsertUsers(10000);
-                //Program.ReadUser();
+                //Program.InsertUsers(2);
+                Program.ReadUser();
                 //Program.UpdateUser();
                 //Program.DeleteUser();
 
-                Program.InsertUsersWithRef(500000);
+                /*with one referece(aka eager loading)*/
+                //Program.InsertUsersWithRef(10000);
+                //Program.ReadUserRef();
 
             }
             catch(Exception ex)
             {
-
                 Console.WriteLine(ex.StackTrace);
             }
-            
-
         }
         public static void InsertUsersWithRef(int n)
         {
             Stopwatch stopwatch = new Stopwatch();
             using (var context = new DBContext())
-            {
+            {                
                 context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
-                context.ChangeTracker.AutoDetectChangesEnabled = false;
-                
+                context.ChangeTracker.AutoDetectChangesEnabled = false;                
                 stopwatch.Start();
                 for (int i = 0; i < n; i++)
                 {
@@ -51,6 +49,7 @@ namespace ConsoleApp1
                     user.Questions = new List<Question>() { new Question() { Content = "content", Header = "header" } };
                     context.User.Add(user);
                 }
+                context.ChangeTracker.AutoDetectChangesEnabled = true;
                 context.ChangeTracker.DetectChanges();
                 context.SaveChanges();
                 stopwatch.Stop();
@@ -79,21 +78,31 @@ namespace ConsoleApp1
                 Console.Beep();
             }
         }
-
+        public static void ReadUserRef()
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            using (var context = new DBContext())
+            {
+                stopwatch.Start();
+                var users = context.User.Include(u => u.Questions).ToArray();               
+                stopwatch.Stop();
+                Console.WriteLine("Read user - Elapsed Time is {0} ms records {1}", stopwatch.ElapsedMilliseconds,users.Length);
+            }
+            Console.Beep();
+        }
         public static void ReadUser()
         {
             Stopwatch stopwatch = new Stopwatch();
             using (var context = new DBContext())
             {
                 stopwatch.Start();
-                var users = context.User.ToArray();
+                var users = context.User.ToArray();               
                 stopwatch.Stop();
                 Console.WriteLine("Read user - Elapsed Time is {0} ms", stopwatch.ElapsedMilliseconds);
             }
             Console.Beep();
 
         }
-
         public static void DeleteUser()
         {
             using (var context = new DBContext())
@@ -108,6 +117,23 @@ namespace ConsoleApp1
             }
         }
         public static void UpdateUser()
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            using (DBContext context = new DBContext())
+            {
+                stopwatch.Start();
+                context.User.UpdateRange(context.User);
+                foreach (var user in context.User)
+                {
+                    user.UserName = "Update user name4";
+                }
+                context.SaveChanges();
+                stopwatch.Stop();
+                Console.WriteLine("Update user - Elapsed Time is {0} ms {1} rows", stopwatch.ElapsedMilliseconds, context.User.ToArray().Length);
+            }
+        }
+
+        public static void UpdateUserRef()
         {
             Stopwatch stopwatch = new Stopwatch();
             using (DBContext context = new DBContext())
