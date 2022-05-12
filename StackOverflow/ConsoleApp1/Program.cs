@@ -19,14 +19,15 @@ namespace ConsoleApp1
         {
             try
             {
-                //Program.InsertUsers(2);
-                Program.ReadUser();
+                //Program.InsertUsers(1000);
+                //Program.ReadUser();
                 //Program.UpdateUser();
                 //Program.DeleteUser();
 
                 /*with one referece(aka eager loading)*/
-                //Program.InsertUsersWithRef(10000);
+                //Program.InsertUsersWithRef(1);
                 //Program.ReadUserRef();
+                Program.UpdateUserRef();
 
             }
             catch(Exception ex)
@@ -122,10 +123,10 @@ namespace ConsoleApp1
             using (DBContext context = new DBContext())
             {
                 stopwatch.Start();
-                context.User.UpdateRange(context.User);
+                context.User.UpdateRange(context.User);                
                 foreach (var user in context.User)
                 {
-                    user.UserName = "Update user name4";
+                    user.UserName = "Update user name@";
                 }
                 context.SaveChanges();
                 stopwatch.Stop();
@@ -138,15 +139,20 @@ namespace ConsoleApp1
             Stopwatch stopwatch = new Stopwatch();
             using (DBContext context = new DBContext())
             {
+                
                 stopwatch.Start();
-                context.User.UpdateRange(context.User);
+                // Eager loading
+                context.User.UpdateRange(context.User.Include(user=>user.Questions));
                 foreach (var user in context.User)
                 {
-                    user.UserName = "Update user name4";
+                    user.UserName = "Update user name 2";
+                    user.Questions.FirstOrDefault().Content = "Update content 2";
                 }
                 context.SaveChanges();
                 stopwatch.Stop();
-                Console.WriteLine("Update user - Elapsed Time is {0} ms {1} rows", stopwatch.ElapsedMilliseconds, context.User.ToArray().Length);
+                var numberOfQuestions = context.Question.ToArray().Length;
+                var numberOfUsers = context.User.ToArray().Length;  
+                Console.WriteLine("Update user - Elapsed Time is {0} ms user {1} rows users {2} rows questions", stopwatch.ElapsedMilliseconds, numberOfUsers,numberOfQuestions);
             }
         }
     }

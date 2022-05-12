@@ -119,3 +119,20 @@ Read  100000
 Read  500000
 	Hibernate -  ms
 	Entity - 5999 ms
+	
+=========UPDATEREF=========
+Update 	
+	Hibernate -  ms
+	Entity - 1355  ms	
+Update  1000
+	Hibernate -  ms
+	Entity - 1730 ms	
+Update  10000
+	Hibernate -  ms
+	Entity - 5510 ms
+Update  100000
+	Hibernate -  ms
+	Entity - 45928 ms	
+Update  500000
+	Hibernate -  ms
+	Entity - 223870 ms
