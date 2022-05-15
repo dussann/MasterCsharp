@@ -25,9 +25,10 @@ namespace ConsoleApp1
                 //Program.DeleteUser();
 
                 /*with one referece(aka eager loading)*/
-                //Program.InsertUsersWithRef(1);
+                Program.InsertUsersWithRef(500000);
                 //Program.ReadUserRef();
-                Program.UpdateUserRef();
+                //Program.UpdateUserRef();
+                Program.DeleteUserRef();
 
             }
             catch(Exception ex)
@@ -107,8 +108,20 @@ namespace ConsoleApp1
         public static void DeleteUser()
         {
             using (var context = new DBContext())
-            {
-                Console.WriteLine(context.User.ToArray().Length);
+            {                
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                context.User.RemoveRange(context.User);
+                context.SaveChanges();
+                stopwatch.Stop();
+                Console.WriteLine("Delete all users - Elapsed Time is {0} ms", stopwatch.ElapsedMilliseconds);
+            }
+        }
+
+        public static void DeleteUserRef()
+        {
+            using (var context = new DBContext())
+            {                
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
                 context.User.RemoveRange(context.User);

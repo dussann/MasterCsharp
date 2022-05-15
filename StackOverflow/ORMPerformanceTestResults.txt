@@ -135,4 +135,20 @@ Update  100000
 	Entity - 45928 ms	
 Update  500000
 	Hibernate -  ms
-	Entity - 223870 ms
+	Entity - 223870 ms	
+=========DELETEREF=========
+Delete 	
+	Hibernate -  ms
+	Entity - 34  ms	
+Delete  1000
+	Hibernate -  ms
+	Entity - 294 ms	
+Delete  10000
+	Hibernate -  ms
+	Entity - 2495 ms
+Delete  100000
+	Hibernate -  ms
+	Entity - 20840 ms	
+Delete  500000
+	Hibernate -  ms
+	Entity - 147374 ms
