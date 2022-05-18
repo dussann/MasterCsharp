@@ -1,4 +1,7 @@
 Hibernate(Java)
+Hibernate doesn't enable batching by default. This means that it'll send a separate SQL statement for each insert/update operation:
+-Batching allows us to send a group of SQL statements to the database in a single network call. This way, we can optimize the network and memory usage of our application.
+-there can be only one type of entity in a single batch.
 -Batch insert je potrbno koristiti kako bi se izbegao outOfMemmoryException
 (povecava se Java Heap, a to je valjda povezano sa RAM memorijom i sistem kesom )
 GenerationType.IDENTITY ne podrzava Batch processing
@@ -32,8 +35,8 @@ Create  10000
 	Hibernate - 11500 ms
 	Entity - 2250 ms
 Create  100000
-	Hibernate - 19100 ms
-	Entity - 21394 ms	
+	Hibernate - 19100 ms  (1174866)
+	Entity - 21394 ms	 
 Create  500000
 	Hibernate - 98750 ms
 	Entity - 107527 ms
@@ -58,16 +61,16 @@ Update
 	Hibernate -  ms
 	Entity - 1137 ms	
 Update  1000
-	Hibernate -  ms
+	Hibernate - 469  ms
 	Entity - 1340 ms
 Update  10000
-	Hibernate -  ms
+	Hibernate - 2248  ms
 	Entity - 3126 ms
 Update  100000
-	Hibernate -  ms
+	Hibernate - 14600 ms
 	Entity - 23429 ms
 Update  500000
-	Hibernate -  ms
+	Hibernate - 76343 ms
 	Entity - 101824 ms
 =========DELETE===========
 Delete 
