@@ -5,6 +5,7 @@ D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\StackOverflow.deps.json
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\StackOverflow.runtimeconfig.json
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\appsettings.Development.json
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\appsettings.json
+D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\StackOverflow.staticwebassets.runtime.json
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\StackOverflow.exe
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\x86\KernelTraceControl.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\x86\KernelTraceControl.Win61.dll
@@ -451,4 +452,3 @@ D:\MasterC#\StackOverflow\ConsoleApp1\obj\Debug\net6.0\refint\ConsoleApp1.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.pdb
 D:\MasterC#\StackOverflow\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.genruntimeconfig.cache
 D:\MasterC#\StackOverflow\ConsoleApp1\obj\Debug\net6.0\ref\ConsoleApp1.dll
-D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\StackOverflow.staticwebassets.runtime.json

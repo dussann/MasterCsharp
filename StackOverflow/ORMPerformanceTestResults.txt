@@ -1,4 +1,12 @@
 Hibernate(Java)
+Hibernate Entity  Life Cycle
+1. Transient state - Objekat nije povezan sa tabelom.
+2. Persistent state - Objekat je povezan sa Hibernate sesijom.
+3. Detached state - Objekat je odvojen od Hibernate sesije.
+
+ID taktika
+1.Identity - spusti record u bazu pa onda ona setuje ID. Uvek se gadja bazu(bez cekanja da se odradi flush) zato se ne korisiti kod batching procesuiranja.Drugim recima baza je odgovorna za kreiranje kljuca.
+2.Sequence - 
 Hibernate doesn't enable batching by default. This means that it'll send a separate SQL statement for each insert/update operation:
 -Batching allows us to send a group of SQL statements to the database in a single network call. This way, we can optimize the network and memory usage of our application.
 -there can be only one type of entity in a single batch.
@@ -32,7 +40,7 @@ Create  1000
 	Hibernate - 2100 ms
 	Entity - 550 ms	
 Create  10000
-	Hibernate - 11500 ms
+	Hibernate - 3937 ms
 	Entity - 2250 ms
 Create  100000
 	Hibernate - 19100 ms  (1174866)
@@ -74,84 +82,84 @@ Update  500000
 	Entity - 101824 ms
 =========DELETE===========
 Delete 
-	Hibernate -  ms
+	Hibernate - 13 ms
 	Entity - 31 ms	
 Delete  1000
-	Hibernate -  ms
+	Hibernate - 24 ms
 	Entity - 241 ms
 Delete  10000
-	Hibernate -  ms
+	Hibernate - 115 ms
 	Entity - 2194 ms
 Delete  100000
-	Hibernate -  ms
+	Hibernate - 1200 ms
 	Entity - 22810 ms
 Delete  500000
-	Hibernate -  ms
+	Hibernate - 7757 ms
 	Entity - 120118 ms
 	
 =========CREATEREF=========
 Create 	
-	Hibernate -  ms
+	Hibernate - 93 ms
 	Entity - 184  ms	
 Create  1000
-	Hibernate -  ms
+	Hibernate - 1206 ms
 	Entity - 655 ms	
 Create  10000
-	Hibernate - 4806 ms
-	Entity -  ms
+	Hibernate - 7888 ms
+	Entity - 4806 ms
 Create  100000
-	Hibernate -  ms
+	Hibernate - 67558 ms
 	Entity - 45827 ms	
 Create  500000
-	Hibernate - 247286 ms
-	Entity -  ms
+	Hibernate - 347057 ms 
+	Entity - 247286 ms
 	
 =========READREF=========
-Read 	
-	Hibernate -  ms
+Read 1	
+	Hibernate - 76 ms
 	Entity - 1432  ms	
 Read  1000
-	Hibernate -  ms
+	Hibernate - 115 ms
 	Entity - 1515 ms	
 Read  10000
-	Hibernate -  ms
+	Hibernate - 215 ms
 	Entity - 1606 ms
 Read  100000
-	Hibernate -  ms
+	Hibernate - 846 ms
 	Entity - 2401 ms	
 Read  500000
-	Hibernate -  ms
+	Hibernate - 2860 ms
 	Entity - 5999 ms
 	
 =========UPDATEREF=========
 Update 	
-	Hibernate -  ms
+	Hibernate - 103 ms
 	Entity - 1355  ms	
 Update  1000
-	Hibernate -  ms
+	Hibernate - 1168 ms
 	Entity - 1730 ms	
 Update  10000
-	Hibernate -  ms
+	Hibernate - 5382 ms
 	Entity - 5510 ms
 Update  100000
-	Hibernate -  ms
+	Hibernate - 41945 ms
 	Entity - 45928 ms	
 Update  500000
-	Hibernate -  ms
+	Hibernate - 207983 ms
 	Entity - 223870 ms	
 =========DELETEREF=========
 Delete 	
-	Hibernate -  ms
+	Hibernate - 14  ms
 	Entity - 34  ms	
 Delete  1000
-	Hibernate -  ms
+	Hibernate - 29 ms
 	Entity - 294 ms	
 Delete  10000
-	Hibernate -  ms
+	Hibernate - 266 ms
 	Entity - 2495 ms
 Delete  100000
-	Hibernate -  ms
+	Hibernate - 3779 ms
 	Entity - 20840 ms	
 Delete  500000
-	Hibernate -  ms
+	Hibernate - 17698 ms
 	Entity - 147374 ms
