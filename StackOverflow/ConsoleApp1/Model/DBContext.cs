@@ -16,6 +16,7 @@ namespace ConsoleApp1.Model
         public DbSet<User> User { get; set; }
         public DbSet<Question> Question { get; set; }
         public DbSet<Answer> Answer { get; set; }
+        public DbSet<Badge> Badge { get; set; }
         /*public DBContext(DbContextOptions<DBContext> options) : base(options)
         {
             

@@ -6,9 +6,9 @@ namespace StackOverflow.Models
 {
     
     public class User
-    {
-        
+    {            
         public int ID { get; set; }
+       
         [Required]
         public string FirstName { get; set; }
         [Required]
@@ -18,8 +18,11 @@ namespace StackOverflow.Models
         [Required]
         
         public string Password { get; set; }
-        public ICollection<Question> Questions { get; set; }
+        
         public ICollection<Answer> Answers { get; set; }
+        public ICollection<Question> Questions { get; set; }
+        public ICollection<Badge> Badges { get; set; }
+
     }
 }
 

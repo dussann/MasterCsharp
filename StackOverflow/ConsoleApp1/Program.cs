@@ -19,21 +19,54 @@ namespace ConsoleApp1
         {
             try
             {
-                //Program.InsertUsers(1000);
+                Program.InsertUsers1();
                 //Program.ReadUser();
                 //Program.UpdateUser();
                 //Program.DeleteUser();
 
                 /*with one referece(aka eager loading)*/
-                Program.InsertUsersWithRef(500000);
+                //Program.InsertUsersWithRef(500000);
                 //Program.ReadUserRef();
                 //Program.UpdateUserRef();
-                Program.DeleteUserRef();
+                //Program.DeleteUserRef();
+                /*using (var context = new DBContext())
+                {
+                    context.Database.EnsureDeleted();
+                    context.Database.EnsureCreated();
+                    User u1 = new User { UserName = "U1",JobTitle="aaaa",Password="123" };
+                    
+                    context.User.Add(u1);
+                    
+                    context.SaveChanges();                    
+                    Console.Beep();
+                }*/
 
             }
             catch(Exception ex)
             {
                 Console.WriteLine(ex.StackTrace);
+            }
+        }
+        public static void InsertUsers1()
+        {
+
+            using (var context = new DBContext())
+            {
+                context.Database.EnsureDeleted();
+                context.Database.EnsureCreated();
+                List<Badge> badges = new List<Badge>() {
+                    new Badge() { Name="aaa",Description="aaa"},
+                    new Badge() { Name="eee",Description="eee"},
+                    new Badge() { Name="sss",Description="sss"}};
+
+                context.User.Add(new User() { FirstName = "John", Country = "USA", JobTitle = ".NET developer", Password = "123", UserName = "c# User",Badges=badges });
+                User u1 = new User() { FirstName = "John1", Country = "USA", JobTitle = ".NET developer", Password = "123", UserName = "c# User"};
+                User u2 = new User() { FirstName = "John2", Country = "USA", JobTitle = ".NET developer", Password = "123", UserName = "c# User" };
+
+                context.Badge.Add(new Badge() { Name = "aaa", Description = "aaa",Users=new List<User>() {u1,u2 } });
+                
+                context.SaveChanges();
+                Console.Beep();
             }
         }
         public static void InsertUsersWithRef(int n)
@@ -80,6 +113,7 @@ namespace ConsoleApp1
                 Console.Beep();
             }
         }
+       
         public static void ReadUserRef()
         {
             Stopwatch stopwatch = new Stopwatch();

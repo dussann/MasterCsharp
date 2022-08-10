@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using StackOverflow.DAO;
 using StackOverflow.Data;
 using StackOverflow.Models;
 
@@ -13,19 +14,20 @@ namespace StackOverflow.Controllers
     public class QuestionsController : Controller
     {
         private readonly SOContext _context;
-
-        public QuestionsController(SOContext context)
+        private readonly IQuestionDAO _questionDAO;
+        private readonly IAnswerDAO _answerDAO;
+        public QuestionsController(IQuestionDAO questionDAO, IAnswerDAO answerDAO)
         {
-            _context = context;
+            _questionDAO = questionDAO;
+            _answerDAO = answerDAO;
         }
 
         // GET: Questions
         public async Task<IActionResult> Index()
-        {
-            var sOContext = _context.Questions.Include(q => q.User);
-            
+        {   
+            IEnumerable<Question> questions = _questionDAO.GetAllQuestions();
             ViewData["Greeting"] = TempData["userName"];
-            return View(await sOContext.ToListAsync());
+            return View(questions);            
         }
 
         // GET: Questions/Details/5
@@ -36,9 +38,11 @@ namespace StackOverflow.Controllers
                 return NotFound();
             }
             AQViewModel viewModel = new AQViewModel();
-            List<Answer> answers = _context.Answers.Where(a => a.ID == id).ToList();
-            viewModel.Answers = _context.Answers.ToList();
-            
+            //List<Answer> answers = _context.Answers.Where(a => a.ID == id).ToList();
+            //viewModel.Answers = _context.Answers.ToList();
+            List<Answer> answers = _answerDAO.GetAnswersById(id);            
+            viewModel.Answers = _answerDAO.GetAllAnswers();
+
             var question = await _context.Questions.Include(q => q.User).FirstOrDefaultAsync(m => m.ID == id);
             viewModel.Question = question;
             if (question == null)
@@ -51,9 +55,7 @@ namespace StackOverflow.Controllers
 
         // GET: Questions/Create
         public IActionResult Create()
-        {
-            var x = new SelectList(_context.Users, "ID", "ID");
-            ViewData["UserID"] = new SelectList(_context.Users, "ID", "ID");
+        {  
             return View();
         }
 
@@ -62,16 +64,14 @@ namespace StackOverflow.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Header,Content,UserID")] Question question)
+        public async Task<IActionResult> Create(Question question)
         {
             if (ModelState.IsValid)
             {
                 question.UserID = (int)TempData["userId"];
-                _context.Add(question);
-                await _context.SaveChangesAsync();
+                _questionDAO.CreateQuestion(question);
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["UserID"] = new SelectList(_context.Users, "ID", "ID", question.UserID);
+            }           
             return View(question);
         }
 

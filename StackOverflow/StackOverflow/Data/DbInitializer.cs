@@ -12,8 +12,8 @@ namespace StackOverflow.Data
         {
             try
             {
-                context.Database.EnsureDeleted();
-                context.Database.EnsureCreated();
+                // context.Database.EnsureDeleted();
+                // context.Database.EnsureCreated();
 
                 /*User u1 = new User { FirstName = "Pera", Country = "Serbia", JobTitle = "Software developer", UserName = "Pera", Password = "Pera" };
                 User u2 = new User { FirstName = "Pera1", Country = "Serbia", JobTitle = "Software developer", UserName = "Pera1", Password = "Pera1" };

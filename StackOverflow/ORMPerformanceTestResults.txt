@@ -32,23 +32,29 @@ Every entity is associated with a given EntityState:
 https://docs.microsoft.com/en-us/ef/core/change-tracking/
 https://www.learnentityframeworkcore.com/dbcontext
 https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext.update?view=efcore-5.0
-=========CREATE=========
+
+Horizontala broj recorda, vertikalna vreme
+
+=========CREATE=========h=31714 e=26940
+
+
+
 Create 
-	Hibernate - 65 ms
+	Hibernate - 80 ms
 	Entity - 90 ms	
 Create  1000
-	Hibernate - 2100 ms
+	Hibernate - 530 ms
 	Entity - 550 ms	
 Create  10000
-	Hibernate - 3937 ms
+	Hibernate - 3537 ms
 	Entity - 2250 ms
 Create  100000
-	Hibernate - 19100 ms  (1174866)
+	Hibernate - 27460 ms   
 	Entity - 21394 ms	 
 Create  500000
-	Hibernate - 98750 ms
+	Hibernate - 126967 ms
 	Entity - 107527 ms
-=========READ===========
+=========READ=========== h=821 e=1858
 Read 
 	Hibernate - 70 ms
 	Entity - 1306 ms	
@@ -64,9 +70,9 @@ Read  100000
 Read  500000
 	Hibernate - 2879 ms
 	Entity - 3541 ms
-=========UPDATE===========
+=========UPDATE=========== h=18751 e=21755
 Update 
-	Hibernate -  ms
+	Hibernate - 95 ms
 	Entity - 1137 ms	
 Update  1000
 	Hibernate - 469  ms
@@ -80,7 +86,7 @@ Update  100000
 Update  500000
 	Hibernate - 76343 ms
 	Entity - 101824 ms
-=========DELETE===========
+=========DELETE=========== h=1822 e=7457
 Delete 
 	Hibernate - 13 ms
 	Entity - 31 ms	
@@ -95,9 +101,9 @@ Delete  100000
 	Entity - 22810 ms
 Delete  500000
 	Hibernate - 7757 ms
-	Entity - 120118 ms
+	Entity - 12011 ms
 	
-=========CREATEREF=========
+=========CREATEREF========= h=84760 e=59752
 Create 	
 	Hibernate - 93 ms
 	Entity - 184  ms	
@@ -114,7 +120,7 @@ Create  500000
 	Hibernate - 347057 ms 
 	Entity - 247286 ms
 	
-=========READREF=========
+=========READREF=========h=822 e=2591
 Read 1	
 	Hibernate - 76 ms
 	Entity - 1432  ms	
@@ -131,7 +137,7 @@ Read  500000
 	Hibernate - 2860 ms
 	Entity - 5999 ms
 	
-=========UPDATEREF=========
+=========UPDATEREF=========h=51316 e=55679
 Update 	
 	Hibernate - 103 ms
 	Entity - 1355  ms	
@@ -147,7 +153,7 @@ Update  100000
 Update  500000
 	Hibernate - 207983 ms
 	Entity - 223870 ms	
-=========DELETEREF=========
+=========DELETEREF=========h=4357 e=64253
 Delete 	
 	Hibernate - 14  ms
 	Entity - 34  ms	

@@ -1,3 +1,7 @@
+D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\MySqlConnector.dll
+D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\System.Composition.Runtime.dll
+D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\TraceReloggerLib.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\Dia2Lib.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\OSExtensions.dll
@@ -350,7 +354,6 @@ D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\Microsoft.VisualStudio.We
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
-D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\MySqlConnector.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\Perfolizer.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
@@ -358,9 +361,7 @@ D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\System.CodeDom.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\System.Composition.AttributedModel.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\System.Composition.Convention.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\System.Composition.Hosting.dll
-D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\System.Composition.Runtime.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\System.Composition.TypedParts.dll
-D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\System.Drawing.Common.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\System.Management.dll
@@ -415,7 +416,6 @@ D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\it\Microsoft.CodeAnalysis
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\MasterC#\StackOverflow\ConsoleApp1\bin\Debug\net6.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
