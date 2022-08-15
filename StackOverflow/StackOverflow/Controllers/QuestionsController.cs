@@ -12,8 +12,7 @@ using StackOverflow.Models;
 namespace StackOverflow.Controllers
 {
     public class QuestionsController : Controller
-    {
-        private readonly SOContext _context;
+    {        
         private readonly IQuestionDAO _questionDAO;
         private readonly IAnswerDAO _answerDAO;
         public QuestionsController(IQuestionDAO questionDAO, IAnswerDAO answerDAO)
@@ -37,18 +36,10 @@ namespace StackOverflow.Controllers
             {
                 return NotFound();
             }
-            AQViewModel viewModel = new AQViewModel();
-            //List<Answer> answers = _context.Answers.Where(a => a.ID == id).ToList();
-            //viewModel.Answers = _context.Answers.ToList();
-            List<Answer> answers = _answerDAO.GetAnswersById(id);            
-            viewModel.Answers = _answerDAO.GetAllAnswers();
-
-            var question = await _context.Questions.Include(q => q.User).FirstOrDefaultAsync(m => m.ID == id);
-            viewModel.Question = question;
-            if (question == null)
-            {
-                return NotFound();
-            }
+            AQViewModel viewModel = new AQViewModel();            
+            viewModel.Answers = _answerDAO.GetAnswersByQuestionId(id);            
+            viewModel.Question = _questionDAO.GetQuestionById(id);
+            
             TempData["questionId"] = id;
             return View(viewModel);             
         }
@@ -76,19 +67,21 @@ namespace StackOverflow.Controllers
         }
 
         // GET: Questions/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+      /*  public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-
-            var question = await _context.Questions.FindAsync(id);
+            
+            //var question = await _context.Questions.FindAsync(id);
+            Question question = _questionDAO.GetQuestionById(id);
             if (question == null)
             {
                 return NotFound();
             }
-            ViewData["UserID"] = new SelectList(_context.Users, "ID", "ID", question.UserID);
+            //ViewData["UserID"] = new SelectList(_context.Users, "ID", "ID", question.UserID);
+            //ViewData["UserID"] = new SelectList(_questionDAO.GetAllQuestions, "ID", "ID", question.UserID);
             return View(question);
         }
 
@@ -126,7 +119,7 @@ namespace StackOverflow.Controllers
             }
             ViewData["UserID"] = new SelectList(_context.Users, "ID", "ID", question.UserID);
             return View(question);
-        }
+        }*/
 
         // GET: Questions/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -136,9 +129,8 @@ namespace StackOverflow.Controllers
                 return NotFound();
             }
 
-            var question = await _context.Questions
-                .Include(q => q.User)
-                .FirstOrDefaultAsync(m => m.ID == id);
+            //var question = await _context.Questions.Include(q => q.User).FirstOrDefaultAsync(m => m.ID == id);
+            Question question = _questionDAO.GetQuestionById(id);
             if (question == null)
             {
                 return NotFound();
@@ -151,17 +143,10 @@ namespace StackOverflow.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            
-            var question = await _context.Questions.FindAsync(id);
-            _context.Questions.Remove(question);
-            await _context.SaveChangesAsync();
+        {   
+            Question question = _questionDAO.GetQuestionById(id);
+            _questionDAO.DeleteQuestion(question);
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool QuestionExists(int id)
-        {
-            return _context.Questions.Any(e => e.ID == id);
         }
     }
 }

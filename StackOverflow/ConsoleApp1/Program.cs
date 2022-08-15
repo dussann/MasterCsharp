@@ -53,18 +53,42 @@ namespace ConsoleApp1
             using (var context = new DBContext())
             {
                 context.Database.EnsureDeleted();
-                context.Database.EnsureCreated();
-                List<Badge> badges = new List<Badge>() {
-                    new Badge() { Name="aaa",Description="aaa"},
-                    new Badge() { Name="eee",Description="eee"},
-                    new Badge() { Name="sss",Description="sss"}};
-
-                context.User.Add(new User() { FirstName = "John", Country = "USA", JobTitle = ".NET developer", Password = "123", UserName = "c# User",Badges=badges });
-                User u1 = new User() { FirstName = "John1", Country = "USA", JobTitle = ".NET developer", Password = "123", UserName = "c# User"};
-                User u2 = new User() { FirstName = "John2", Country = "USA", JobTitle = ".NET developer", Password = "123", UserName = "c# User" };
-
-                context.Badge.Add(new Badge() { Name = "aaa", Description = "aaa",Users=new List<User>() {u1,u2 } });
+                context.Database.EnsureCreated();              
+               
+                User u1 = new() {
+                    FirstName = "John1", Country = "USA", JobTitle = ".NET developer", Password = "123", UserName = "c# User",
+                    Questions= new List<Question>(),
+                    Answers= new List<Answer>(),
+                };
+                User u2 = new() {
+                    FirstName = "John2", Country = "USA", JobTitle = ".NET developer", Password = "123", UserName = "c# User",
+                    Answers = new List<Answer>(),                    
+                };
+                u1.Questions = new List<Question>();
                 
+                context.User.Add(u2);
+                Question question = new Question() { Content = "js issue", User = u1 };
+               
+                u1.Questions.Add(question);
+                context.User.Add(u1);
+                context.Question.Add(question);
+
+                Answer answer = new Answer() { Content = "This ih answer",User = u2,Question=question };
+                u2.Answers.Add(answer);
+
+                Answer comment = new Answer() { Content = "Thank you very much on response",ParentAnswerId=Guid.NewGuid(),OriginalText=answer,User=u1,Question=question};
+                answer.Comments = new List<Answer>();
+                answer.Comments.Add(comment);
+                u1.Answers.Add(comment);
+                context.Answer.Add(answer);
+               
+                
+                
+
+                
+                //context.SaveChanges();
+                //context.Badge.Add(new Badge() { Name = "aaa", Description = "aaa",Users=new List<User>() {u1,u2 } });
+
                 context.SaveChanges();
                 Console.Beep();
             }

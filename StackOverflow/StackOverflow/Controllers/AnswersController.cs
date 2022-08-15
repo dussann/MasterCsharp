@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using StackOverflow.DAO;
 using StackOverflow.Data;
 using StackOverflow.Models;
 
@@ -12,20 +13,21 @@ namespace StackOverflow.Controllers
 {
     public class AnswersController : Controller
     {
-        private readonly SOContext _context;
+        //private readonly SOContext _context;
+        private readonly IAnswerDAO _answerDAO;
 
-        public AnswersController(SOContext context)
-        {
-            _context = context;
+        public AnswersController(SOContext context,IAnswerDAO answerDAO)        {
+            //_context = context;
+            _answerDAO = answerDAO;
         }
 
         // GET: Answers
-        public async Task<IActionResult> Index()
+       /* public async Task<IActionResult> Index()
         {
             var stackOverflowContext = _context.Answers.Include(a => a.User);
             return View(await stackOverflowContext.ToListAsync());
         }
-
+*/
         // GET: Answers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -33,10 +35,7 @@ namespace StackOverflow.Controllers
             {
                 return NotFound();
             }
-
-            var answer = await _context.Answers
-                .Include(a => a.User)
-                .FirstOrDefaultAsync(m => m.ID == id);
+            Answer answer = _answerDAO.GetAnswerById(id);            
             if (answer == null)
             {
                 return NotFound();
@@ -57,39 +56,12 @@ namespace StackOverflow.Controllers
                 UserID = userId,
                 QuestionID = questionId                
             };
-            _context.Answers.Add(answ);
-            _context.SaveChanges();
-            // ViewData["UserID"] = new SelectList(_context.Set<User>(), "ID", "ID");
-            return RedirectToAction("Details", "Questions",new { id = questionId } );
-            // return View();
-        }
-
-        // POST: Answers/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Answer answer)
-        {
-            int userId = (int)TempData["userId"];
-            int questionId = (int)TempData["questionId"];
-            User user = _context.Users.FirstOrDefault(x => x.ID == userId);
-            Question question = _context.Questions.FirstOrDefault(x => x.ID == questionId);
-            //answer.User = user;
-            //answer.Question = question;
-
-            if (ModelState.IsValid)
-            {
-                _context.Add(answer);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-           // ViewData["UserID"] = new SelectList(_context.Set<User>(), "ID", "ID", answer.UserID);
-            return View(answer);
-        }
+            _answerDAO.CreateAnswer(answ);            
+            return RedirectToAction("Details", "Questions",new { id = questionId } );            
+        }      
 
         // GET: Answers/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+      /*  public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -174,6 +146,6 @@ namespace StackOverflow.Controllers
         private bool AnswerExists(int id)
         {
             return _context.Answers.Any(e => e.ID == id);
-        }
+        }*/
     }
 }

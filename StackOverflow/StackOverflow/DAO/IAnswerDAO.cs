@@ -5,7 +5,9 @@ namespace StackOverflow.DAO
 {
     public interface IAnswerDAO
     {
+        public void CreateAnswer(Answer answer);
         public List<Answer> GetAllAnswers();
-        public List<Answer> GetAnswersById(int? id);
+        public Answer GetAnswerById(int? id);
+        public List<Answer> GetAnswersByQuestionId(int? id);        
     }
 }

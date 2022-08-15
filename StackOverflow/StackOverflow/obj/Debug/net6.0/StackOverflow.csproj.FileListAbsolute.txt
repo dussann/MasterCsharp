@@ -1,4 +1,12 @@
-D:\MasterC#\StackOverflow\StackOverflow\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\MasterC#\StackOverflow\StackOverflow\obj\Debug\net6.0\StackOverflow.csproj.AssemblyReference.cache
+D:\MasterC#\StackOverflow\StackOverflow\obj\Debug\net6.0\StackOverflow.GeneratedMSBuildEditorConfig.editorconfig
+D:\MasterC#\StackOverflow\StackOverflow\obj\Debug\net6.0\StackOverflow.AssemblyInfoInputs.cache
+D:\MasterC#\StackOverflow\StackOverflow\obj\Debug\net6.0\StackOverflow.AssemblyInfo.cs
+D:\MasterC#\StackOverflow\StackOverflow\obj\Debug\net6.0\StackOverflow.csproj.CoreCompileInputs.cache
+D:\MasterC#\StackOverflow\StackOverflow\obj\Debug\net6.0\StackOverflow.MvcApplicationPartsAssemblyInfo.cs
+D:\MasterC#\StackOverflow\StackOverflow\obj\Debug\net6.0\StackOverflow.MvcApplicationPartsAssemblyInfo.cache
+D:\MasterC#\StackOverflow\StackOverflow\obj\Debug\net6.0\StackOverflow.RazorAssemblyInfo.cache
+D:\MasterC#\StackOverflow\StackOverflow\obj\Debug\net6.0\StackOverflow.RazorAssemblyInfo.cs
 D:\MasterC#\StackOverflow\StackOverflow\bin\Debug\net6.0\appsettings.Development.json
 D:\MasterC#\StackOverflow\StackOverflow\bin\Debug\net6.0\appsettings.json
 D:\MasterC#\StackOverflow\StackOverflow\bin\Debug\net6.0\StackOverflow.staticwebassets.runtime.json
@@ -354,6 +362,7 @@ D:\MasterC#\StackOverflow\StackOverflow\bin\Debug\net6.0\pt-BR\Microsoft.CodeAna
 D:\MasterC#\StackOverflow\StackOverflow\bin\Debug\net6.0\ru\Microsoft.CodeAnalysis.resources.dll
 D:\MasterC#\StackOverflow\StackOverflow\bin\Debug\net6.0\tr\Microsoft.CodeAnalysis.resources.dll
 D:\MasterC#\StackOverflow\StackOverflow\bin\Debug\net6.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\MasterC#\StackOverflow\StackOverflow\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
 D:\MasterC#\StackOverflow\StackOverflow\bin\Debug\net6.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\MasterC#\StackOverflow\StackOverflow\bin\Debug\net6.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\MasterC#\StackOverflow\StackOverflow\bin\Debug\net6.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
@@ -411,15 +420,6 @@ D:\MasterC#\StackOverflow\StackOverflow\bin\Debug\net6.0\runtimes\win\lib\netcor
 D:\MasterC#\StackOverflow\StackOverflow\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\MasterC#\StackOverflow\StackOverflow\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\MasterC#\StackOverflow\StackOverflow\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-D:\MasterC#\StackOverflow\StackOverflow\obj\Debug\net6.0\StackOverflow.csproj.AssemblyReference.cache
-D:\MasterC#\StackOverflow\StackOverflow\obj\Debug\net6.0\StackOverflow.GeneratedMSBuildEditorConfig.editorconfig
-D:\MasterC#\StackOverflow\StackOverflow\obj\Debug\net6.0\StackOverflow.AssemblyInfoInputs.cache
-D:\MasterC#\StackOverflow\StackOverflow\obj\Debug\net6.0\StackOverflow.AssemblyInfo.cs
-D:\MasterC#\StackOverflow\StackOverflow\obj\Debug\net6.0\StackOverflow.csproj.CoreCompileInputs.cache
-D:\MasterC#\StackOverflow\StackOverflow\obj\Debug\net6.0\StackOverflow.MvcApplicationPartsAssemblyInfo.cs
-D:\MasterC#\StackOverflow\StackOverflow\obj\Debug\net6.0\StackOverflow.MvcApplicationPartsAssemblyInfo.cache
-D:\MasterC#\StackOverflow\StackOverflow\obj\Debug\net6.0\StackOverflow.RazorAssemblyInfo.cache
-D:\MasterC#\StackOverflow\StackOverflow\obj\Debug\net6.0\StackOverflow.RazorAssemblyInfo.cs
 D:\MasterC#\StackOverflow\StackOverflow\obj\Debug\net6.0\staticwebassets.build.json
 D:\MasterC#\StackOverflow\StackOverflow\obj\Debug\net6.0\staticwebassets.development.json
 D:\MasterC#\StackOverflow\StackOverflow\obj\Debug\net6.0\scopedcss\bundle\StackOverflow.styles.css

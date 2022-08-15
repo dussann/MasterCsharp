@@ -13,14 +13,25 @@ namespace StackOverflow.DAO
             _context = context;
         }
 
+        public void CreateAnswer(Answer answer)
+        {
+            _context.Answers.Add(answer);
+            _context.SaveChanges();
+        }
+
         public List<Answer> GetAllAnswers()
         {
             return _context.Answers.ToList();
         }
 
-        public List<Answer> GetAnswersById(int? id)
-        {
-            return _context.Answers.Where(a => a.ID == id).ToList();
+        public Answer GetAnswerById(int? id)
+        {            
+            return _context.Answers.FirstOrDefault(answer=>answer.ID==id);
+        }
+
+        public List<Answer> GetAnswersByQuestionId(int? id)
+        {            
+            return _context.Answers.Where(answer=>answer.QuestionID == id).ToList();
         }
     }
 }
